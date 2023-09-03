@@ -15,10 +15,7 @@ class Aluno {
   }
 
   double retornaMedia() {
-    double total = 0;
-    for (var nota in _notas) {
-      total = total + nota;
-    }
+    double total = _notas.reduce((value, element) => value + element);
     var media = total / _notas.length;
     return media.isNaN ? 0 : media;
   }
@@ -27,7 +24,5 @@ class Aluno {
     return retornaMedia() >= notaCorte;
   }
 
-  Aluno(String nome) {
-    _nome = nome;
-  }
+  Aluno(this._nome);
 }

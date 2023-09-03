@@ -1,4 +1,3 @@
-import 'package:diobpte/diobpte.dart';
 import 'package:test/test.dart';
 
 void main() {
