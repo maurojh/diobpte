@@ -7,14 +7,19 @@ void executa() {
   var nome = ConsoleUtils.lerStringComTexto('Digite o nome do aluno:');
   Aluno aluno = Aluno(nome);
   print(aluno.getNome());
-  /*
-  try {
-    double numero = double.parse(linha ?? '');
-    print(numero);
-  } catch (e) {
-    print('Número inválido: $linha');
-  } finally {
-    print('Executando finally');
+  double? nota;
+
+  do {
+    nota = ConsoleUtils.lerDoubleComTextoEValidacao('Digite a nota do aluno ou S para sair','S');
+    if(nota != null) {
+      aluno.setNota(nota);
+    }
+  } while (nota != null);
+  print('As notas digitadas foram: ${aluno.getNotas()}');
+  print('A média do aluno é: ${aluno.retornaMedia()}');
+  if(aluno.aprovado(7)) {
+    print('O aluno ${aluno.getNome()} foi aprovado');
+  } else {
+     print('O aluno ${aluno.getNome()} foi reprovado');
   }
-  */
 }
